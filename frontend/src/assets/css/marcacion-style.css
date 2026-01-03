@@ -1,0 +1,73 @@
+/* Reloj Técnico */
+.clock-main-display {
+  font-size: 3.5rem;
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+/* Alineación de Grilla de Botones */
+.action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.action-card {
+  border-radius: 1.5rem;
+  padding: 1.5rem !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* --- MODO CLARO (Resaltado) --- */
+.theme-light .btn-entrada {
+  background-color: #f0fdf4; /* Verde muy suave */
+  border-color: #10b981;
+  color: #065f46;
+}
+.theme-light .btn-salida {
+  background-color: #fef2f2; /* Rojo muy suave */
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+/* --- MODO OSCURO (Cyber) --- */
+.theme-dark .btn-entrada {
+  background-color: rgba(16, 185, 129, 0.05);
+  border-color: #10b981;
+  color: #10b981;
+}
+.theme-dark .btn-salida {
+  background-color: rgba(239, 68, 68, 0.05);
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* Barra de Cerrar Sesión */
+.cerrarSesion {
+  border-radius: 1.2rem;
+  padding: 0.8rem 1.2rem !important;
+  border: 2px solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.theme-light .cerrarSesion {
+  background-color: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.theme-dark .cerrarSesion {
+  background-color: #0f172a;
+  border-color: rgba(255, 255, 255, 0.1);
+}

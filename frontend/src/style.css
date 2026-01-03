@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --woden-orange: #FF8F00;
+  --woden-navy-dark: #0F172A; /* Azul muy oscuro para el fondo */
+  --woden-navy-card: #1E293B; /* Azul intermedio para la tarjeta */
+}
+
+body {
+  margin: 0;
+  background-color: var(--woden-navy-dark); /* Fondo oscuro por defecto */
+  font-family: 'Inter', sans-serif;
+  color: white;
+}
+
+/* --- TARJETA MODO OSCURO --- */
+.card-woden {
+  @apply bg-[#1E293B] shadow-2xl border border-slate-700;
+  border-radius: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* --- INPUTS --- */
+.input-container {
+  @apply flex items-center border border-slate-600 bg-[#0F172A] rounded-2xl px-4 py-3 mb-4 transition-all;
+}
+
+/* Resaltado naranja cuando se escribe */
+.input-container:focus-within {
+  @apply border-[#FF8F00] ring-1 ring-[#FF8F00];
+}
+
+/* El icono de la izquierda y el ojito de la derecha */
+.input-icon, .eye-button {
+  @apply w-5 h-5 text-slate-400 transition-colors shrink-0;
+}
+
+/* El ojito cambia a naranja cuando el input tiene foco */
+.input-container:focus-within .eye-button {
+  @apply text-[#FF8F00];
+}
+
+.modern-input {
+  /* text-sm baja el tamaño a 14px aprox. 
+     tracking-wide le da un toque más profesional al ser pequeño */
+  @apply w-full bg-transparent outline-none text-white placeholder-slate-500 text-sm tracking-wide px-3;
+}
+
+/* --- BOTÓN DE OJO ESPECÍFICO --- */
+.eye-button {
+  @apply hover:text-white focus:outline-none cursor-pointer;
+}
+
+/* Animaciones */
+.fade-slide-enter-active, .fade-slide-leave-active {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fade-slide-enter-from, .fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}

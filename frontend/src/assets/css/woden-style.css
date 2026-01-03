@@ -1,0 +1,103 @@
+:root {
+  --primary: #ff8f00;
+  --primary-gradient: linear-gradient(135deg, #ff8f00 0%, #ff6a00 100%);
+}
+
+/* Layout Responsivo */
+.main-container {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* Tarjeta Alargada Pro */
+.woden-card {
+  width: 100%;
+  max-width: 310px;
+  min-height: 480px; 
+  padding: 2.5rem 1.8rem;
+  border-radius: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.card-dark {
+  background: rgba(15, 23, 42, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.8);
+}
+
+.card-light {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+}
+
+/* Inputs */
+.input-wrapper {
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+
+.woden-input-base {
+  width: 100%;
+  border-radius: 1rem;
+  padding: 0.8rem 1rem 0.8rem 2.8rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: 2px solid #e2e8f0;
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  outline: none;
+}
+
+.woden-input-base::placeholder {
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.5;
+  text-align: left;
+}
+
+/* Iconos dinámicos */
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  z-index: 10;
+}
+.theme-dark .input-icon { color: #94a3b8; }
+.theme-light .input-icon { color: #64748b; }
+
+/* Botón Principal */
+.woden-btn-primary {
+  width: 100%;
+  background: var(--primary-gradient);
+  color: white;
+  padding: 1rem;
+  border-radius: 1.1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 20px -5px rgba(255, 143, 0, 0.4);
+}
+
+/* Visibilidad de textos en Modo Claro */
+.theme-light .text-emerald-600 { color: #059669 !important; }
+.theme-light .opacity-30 { opacity: 0.7 !important; color: #475569; }
+
+/* Animaciones */
+@keyframes ping { 75%, 100% { transform: scale(2.5); opacity: 0; } }
+.animate-ping { animation: ping 2s infinite; }
+.animate-spin { animation: spin 1s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
