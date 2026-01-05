@@ -1,4 +1,4 @@
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive, onMounted, computed } from "vue"; // <-- Importante: añadir computed
 import { useRouter } from "vue-router";
 
 export function useAttendance() {
@@ -10,7 +10,6 @@ export function useAttendance() {
   const form = reactive({ usuario: "", password: "" });
   const message = reactive({ text: "", type: "" });
 
-  // --- LÓGICA DE MODO OSCURO ---
   const isDark = ref(localStorage.getItem("theme") !== "light");
 
   const toggleTheme = () => {
@@ -41,7 +40,6 @@ export function useAttendance() {
       showToast("Completa los campos", "error");
       return;
     }
-
     loading.value = true;
     try {
       const res = await fetch(`${API_BASE_URL}/login`, {
@@ -49,32 +47,24 @@ export function useAttendance() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-
       const data = await res.json();
-
       if (res.ok && data.status === "success") {
         employee.value = data;
         localStorage.setItem("user_session", JSON.stringify(data));
         showToast(`Bienvenido ${data.name}`, "success");
         router.push(data.role === "admin" ? "/admin" : "/marcacion");
       } else {
-        // Errores controlados por el Backend (401, 404, 503, etc)
         showToast(data.message || "Credenciales inválidas", "error");
       }
     } catch (err) {
-      // ERROR DE INTERNET / SERVIDOR APAGADO
-      if (err.name === "TypeError" && err.message.includes("fetch")) {
-        showToast("Sin conexión a internet o servidor caído", "error");
-      } else {
-        showToast("Error inesperado en la conexión", "error");
-      }
+      showToast("Error de conexión", "error");
     } finally {
       loading.value = false;
     }
   };
 
   const handleAttendance = async () => {
-    if (!employee.value) return;
+    if (!employee.value || employee.value.day_completed) return; // Bloqueo de seguridad
     loading.value = true;
     try {
       const res = await fetch(`${API_BASE_URL}/attendance`, {
