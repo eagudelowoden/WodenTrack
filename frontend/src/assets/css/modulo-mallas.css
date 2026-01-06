@@ -1,0 +1,94 @@
+/* Estilos específicos para el módulo de Mallas */
+.mesh-container {
+  max-width: 100%;
+  padding: 0 1.5rem;
+}
+
+.btn-upload {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #FF8F00;
+  color: white;
+  border-radius: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 143, 0, 0.3);
+}
+
+.btn-upload:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 143, 0, 0.4);
+}
+
+/* Estilos de la Tabla */
+.table-wrapper {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(150, 150, 150, 0.1);
+}
+
+.mesh-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.mesh-table th {
+  padding: 1rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.mesh-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(150, 150, 150, 0.05);
+}
+
+/* Temas */
+.light-mode { background: white; color: #1e293b; }
+.light-mode th { background: #f8fafc; color: #64748b; }
+
+.dark-mode { background: rgba(30, 41, 59, 0.5); color: #f1f5f9; }
+.dark-mode th { background: rgba(15, 23, 42, 0.5); color: #FF8F00; }
+
+/* Badges */
+.malla-tag {
+  background: rgba(150, 150, 150, 0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.jornada-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.diurna { background: #e0f2fe; color: #0369a1; }
+.nocturna { background: #f1f5f9; color: #1e293b; border: 1px solid #cbd5e1; }
+.tarde { background: #ffedd5; color: #9a3412; }
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.mesh-table th,
+.mesh-table td {
+  text-align: center;
+  vertical-align: middle;
+}

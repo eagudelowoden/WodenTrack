@@ -1,5 +1,5 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue';
-import { useAttendance } from './useAttendance';
+import { useAttendance } from '../UserLogica/useAttendance.js';
 import { useRouter } from 'vue-router';
 import * as XLSX from 'xlsx';
 

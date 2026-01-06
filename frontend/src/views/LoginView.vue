@@ -72,6 +72,6 @@
 </template>
 <script setup>
 import '../assets/css/woden-style.css';
-import { useAttendance } from '../composables/useAttendance';
+import { useAttendance } from '../composables/UserLogica/useAttendance.js';
 const { form, loading, showPassword, handleLogin, message, isDark, toggleTheme } = useAttendance();
 </script>

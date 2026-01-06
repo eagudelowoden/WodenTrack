@@ -78,6 +78,6 @@
 
 <script setup>
 import '../assets/css/marcacion-style.css';
-import { useAttendance } from '../composables/useAttendance';
+import { useAttendance } from '../composables/UserLogica/useAttendance.js';
 const { employee, currentTime, handleAttendance, logout, loading, isDark, toggleTheme } = useAttendance();
 </script>
